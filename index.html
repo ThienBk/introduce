@@ -3,43 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional CV</title>
+    <title>Professional CV - Nguyễn Anh Thiện</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
         .heading-font {
             font-family: 'Playfair Display', serif;
         }
+        .cv-container {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cv-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .section-hover {
+            transition: background-color 0.3s ease;
+        }
+        .section-hover:hover {
+            background-color: #f9fafb;
+        }
+        .skill-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .skill-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
-<body class="bg-gray-50">
-    <div class="max-w-4xl mx-auto my-12 bg-white shadow-lg rounded-lg overflow-hidden">
+<body>
+    <div class="max-w-4xl mx-auto my-12 bg-white shadow-lg rounded-xl overflow-hidden cv-container">
         <!-- Header Section -->
-        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-white">
+        <div class="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-600 p-8 text-white">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="w-32 h-32 rounded-full border-4 border-white mb-6 md:mb-0 md:mr-8 overflow-hidden">
+                <div class="w-36 h-36 rounded-full border-4 border-white mb-6 md:mb-0 md:mr-8 overflow-hidden shadow-lg">
                     <div class="bg-gray-200 w-full h-full flex items-center justify-center">
-                        <i class="fas fa-user text-4xl text-gray-500"></i>
+                        <i class="fas fa-user text-5xl text-gray-500"></i>
                     </div>
                 </div>
                 <div>
-                    <h1 class="heading-font text-3xl font-bold mb-2">Nguyễn Anh Thiện</h1>
-                    <p class="text-xl mb-4">Professional Title</p>
-                    <div class="flex flex-wrap gap-4">
+                    <h1 class="heading-font text-4xl font-bold mb-2 tracking-tight">Nguyễn Anh Thiện</h1>
+                    <p class="text-xl mb-4 italic text-blue-100">Professional Title</p>
+                    <div class="flex flex-wrap gap-5 text-sm">
                         <div class="flex items-center">
-                            <i class="fas fa-envelope mr-2"></i>
+                            <i class="fas fa-envelope mr-2 text-blue-200"></i>
                             <span>thiennguyen0201@gmail.com</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-phone mr-1"></i>
+                            <i class="fas fa-phone mr-2 text-blue-200"></i>
                             <span>0378 889 755</span>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-200"></i>
                             <span>Nam Từ Liêm, Hà Nội</span>
                         </div>
                     </div>
@@ -50,157 +72,124 @@
         <!-- Main Content -->
         <div class="p-8">
             <!-- About Section -->
-            <section class="mb-8">
-                <h2 class="heading-font text-2xl font-bold text-blue-600 mb-4 border-b pb-2">ABOUT ME</h2>
-                <p class="text-gray-700 leading-relaxed">
+            <section class="mb-10 section-hover p-4 rounded-lg">
+                <h2 class="heading-font text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">ABOUT ME</h2>
+                <p class="text-gray-700 leading-relaxed text-sm">
                     Meticulous, hard-working, diligent, very good health. Can edit photos, edit videos, basic programming.
                 </p>
             </section>
 
             <!-- Experience Section -->
-            <section class="mb-8">
-                <h2 class="heading-font text-2xl font-bold text-blue-600 mb-4 border-b pb-2">WORK EXPERIENCE</h2>
-                <div class="space-y-6">
-                    <!-- Experience 1 -->
-                    <div class="border-l-4 border-blue-500 pl-4">
+            <section class="mb-10 section-hover p-4 rounded-lg">
+                <h2 class="heading-font text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">WORK EXPERIENCE</h2>
+                <div class="space-y-8">
+                    <div class="border-l-4 border-blue-600 pl-4">
                         <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-semibold">Office staff</h3>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">6/2023 - Now</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Office staff</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">6/2023 - Now</span>
                         </div>
-                        <p class="text-gray-600 font-medium mb-2">Cennos Asia <p>Add: 22 Thanh Cong, Ba Dinh, HN</p>
-                      <hr>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1">
-                          <li>Kiểm tra, duy trì dữ liệu sản phẩm trên Website Thương mại điện tử lớn.</li>
-                          
+                        <p class="text-gray-600 font-medium mb-2">Cennos Asia • Add: 22 Thanh Cong, Ba Dinh, HN</p>
+                        <hr class="border-gray-200 my-2">
+                        <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                            <li>Kiểm tra, duy trì dữ liệu sản phẩm trên Website Thương mại điện tử lớn.</li>
                             <li>Cập nhật, chỉnh sửa và cung cấp đầy đủ các thông tin liên quan đến sản phẩm nhằm giúp sản phẩm hiển thị rõ ràng, độc đáo trên Website Thương mại điện tử của đối tác.</li>
                             <li>Phân loại Data của sản phẩm để phục vụ những công việc như loại bỏ sản phẩm hết hàng, phân loại, theo các bộ tiêu chuẩn của khách hàng để tránh nhầm lẫn.</li>
                         </ul>
                     </div>
-
-                    <!-- Experience 2 -->
-                    <div class="border-l-4 border-blue-500 pl-4">
+                    <div class="border-l-4 border-blue-600 pl-4">
                         <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-semibold">Digital Marketing</h3>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">3/2023 - 6/2023</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Digital Marketing</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">3/2023 - 6/2023</span>
                         </div>
-                        <p class="text-gray-600 font-medium mb-2">CÔNG TY CỔ PHẦN DATAKI VIỆT NAM • <p>Add: Toà C2, Vinaconex1, Ngõ 289A Khuất Duy Tiến, Thanh Xuân, HN</p>
-                      <hr>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <p class="text-gray-600 font-medium mb-2">CÔNG TY CỔ PHẦN DATAKI VIỆT NAM • Add: Toà C2, Vinaconex1, Ngõ 289A Khuất Duy Tiến, Thanh Xuân, HN</p>
+                        <hr class="border-gray-200 my-2">
+                        <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
                             <li>Chuẩn bị kế hoạch chạy quảng cáo trên kênh FaceBook.</li>
                             <li>Chuẩn bị nội dung, thiết kế hình ảnh, video.</li>
                             <li>Quản lý ngân sách chạy quảng cáo.</li>
-                          <li>Theo dõi, tối ưu các chiến dịch chạy quảng cáo, điều chỉnh để đạt hiệu quả tốt nhất.</li>
+                            <li>Theo dõi, tối ưu các chiến dịch chạy quảng cáo, điều chỉnh để đạt hiệu quả tốt nhất.</li>
                         </ul>
                     </div>
-                  <!-- Experience 3 -->
-                    <div class="border-l-4 border-blue-500 pl-4">
+                    <div class="border-l-4 border-blue-600 pl-4">
                         <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-semibold">Programmer</h3>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">6/2022 - 1/2023</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Programmer</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">6/2022 - 1/2023</span>
                         </div>
-                        <p class="text-gray-600 font-medium mb-2">XTP Software<p>Add: Toà NB902, khu đô thị mới Dịch Vọng Cầu Giấy, HN</p>
-                      <hr>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1">
-                            <li>Sửa chữa, cập nhật phầm mềm quản lý bệnh nhân bệnh viện đa khoa Hồng Ngọc</li>
+                        <p class="text-gray-600 font-medium mb-2">XTP Software • Add: Toà NB902, khu đô thị mới Dịch Vọng Cầu Giấy, HN</p>
+                        <hr class="border-gray-200 my-2">
+                        <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+                            <li>Sửa chữa, cập nhật phần mềm quản lý bệnh nhân bệnh viện đa khoa Hồng Ngọc</li>
                             <li>Xây dựng web app ilogistics order hàng Trung Quốc</li>
-                          <li>Xây dựng hệ thống kiểm soát đào tạo học viên</li>
-                          <li>Hỗ trợ, huownsg dẫn, đào tạo thực tập sinh</li>
+                            <li>Xây dựng hệ thống kiểm soát đào tạo học viên</li>
+                            <li>Hỗ trợ, hướng dẫn, đào tạo thực tập sinh</li>
                         </ul>
                     </div>
-                  
-                   <!-- Experience 3 -->
-                    <div class="border-l-4 border-blue-500 pl-4">
+                    <div class="border-l-4 border-blue-600 pl-4">
                         <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-semibold">Warehouse staff</h3>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">2019</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Warehouse staff</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">2019</span>
                         </div>
-                        <p class="text-gray-600 font-medium mb-2">Tiki<p>Add: 89 Lĩnh Nam, Hai Bà Trưng, Hà Nội</p>
-                      <hr>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <p class="text-gray-600 font-medium mb-2">Tiki • Add: 89 Lĩnh Nam, Hai Bà Trưng, Hà Nội</p>
+                        <hr class="border-gray-200 my-2">
+                        <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
                             <li>Xử lý, nhận hàng chuyển về kho</li>
-                            <li>Kiểm tra hàng, xắp xếp, kiểm hàng</li>
-                          <li>Lên đơn hàng cho bộ phận đóng gói giao đi</li>
+                            <li>Kiểm tra hàng, sắp xếp, kiểm hàng</li>
+                            <li>Lên đơn hàng cho bộ phận đóng gói giao đi</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             <!-- Education Section -->
-            <section class="mb-8">
-                <h2 class="heading-font text-2xl font-bold text-blue-600 mb-4 border-b pb-2">EDUCATION</h2>
-                <div class="space-y-4">
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-xl font-semibold">Cử nhân kỹ nghệ phần mềm (Software Engineering)</h3>
-                            <p class="text-gray-600">Trường đại học Kinh doanh và Công nghệ Hà Nội</p>
-                        </div>
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">2018 - 2022</span>
+            <section class="mb-10 section-hover p-4 rounded-lg">
+                <h2 class="heading-font text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">EDUCATION</h2>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">Cử nhân kỹ nghệ phần mềm (Software Engineering)</h3>
+                        <p class="text-gray-600 text-sm">Trường đại học Kinh doanh và Công nghệ Hà Nội</p>
                     </div>
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">2018 - 2022</span>
                 </div>
             </section>
 
             <!-- Skills Section -->
-            <section class="mb-8">
-                <h2 class="heading-font text-2xl font-bold text-blue-600 mb-4 border-b pb-2">SKILLS</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="bg-blue-50 p-3 rounded-lg">
-                        <h3 class="font-semibold text-blue-700">Technical Skills</h3>
-                        <ul class="mt-2 space-y-1">
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-blue-500 mr-2 text-xs"></i>
-                                <span>Word</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-blue-500 mr-2 text-xs"></i>
-                                <span>Excel</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-blue-500 mr-2 text-xs"></i>
-                                <span>Powerpoint</span>
-                            </li>
+            <section class="mb-10 section-hover p-4 rounded-lg">
+                <h2 class="heading-font text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">SKILLS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md skill-card">
+                        <h3 class="font-semibold text-blue-700 mb-2">Technical Skills</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>Word</li>
+                            <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>Excel</li>
+                            <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>Powerpoint</li>
                         </ul>
                     </div>
-                    <div class="bg-blue-50 p-3 rounded-lg">
-                        <h3 class="font-semibold text-blue-700">Technical Skills</h3>
-                        <ul class="mt-2 space-y-1">
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-blue-500 mr-2 text-xs"></i>
-                                <span>Html,css,javaScript</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-blue-500 mr-2 text-xs"></i>
-                                <span>ReactJS,Java,Python</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-blue-500 mr-2 text-xs"></i>
-                                <span>Adobe: Cs6,Premiere</span>
-                            </li>
+                    <div class="bg-white p-4 rounded-lg shadow-md skill-card">
+                        <h3 class="font-semibold text-blue-700 mb-2">Technical Skills</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>Html,css,javaScript</li>
+                            <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>ReactJS,Java,Python</li>
+                            <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>Adobe: Cs6,Premiere</li>
                         </ul>
                     </div>
-                    <div class="bg-blue-50 p-3 rounded-lg">
-                        <h3 class="font-semibold text-blue-700">Languages</h3>
-                        <ul class="mt-2 space-y-1">
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-blue-500 mr-2 text-xs"></i>
-                                <span>English (Basic)</span>
-                            </li>
+                    <div class="bg-white p-4 rounded-lg shadow-md skill-card">
+                        <h3 class="font-semibold text-blue-700 mb-2">Languages</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center"><i class="fas fa-check text-blue-500 mr-2"></i>English (Basic)</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Projects/Portfolio -->
-            <section>
-                <h2 class="heading-font text-2xl font-bold text-blue-600 mb-4 border-b pb-2">PROJECTS</h2>
-                <div class="space-y-4">
-                    <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="text-xl font-semibold">Project Name</h3>
-                        <p class="text-gray-600 mb-2">Brief description of the project and your role</p>
-                        <a href="https://my-projects-fc4anjb5r-thienbk.vercel.app/" class="text-blue-600 hover:underline flex items-center">
-                            <i class="fas fa-external-link-alt mr-2"></i>
-                            View Project
-                        </a>
-                    </div>
+            <!-- Projects Section -->
+            <section class="section-hover p-4 rounded-lg">
+                <h2 class="heading-font text-2xl font-bold text-blue-700 mb-4 border-b-2 border-blue-200 pb-2">PROJECTS</h2>
+                <div class="border-l-4 border-blue-600 pl-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Project Name</h3>
+                    <p class="text-gray-600 text-sm mb-2">Brief description of the project and your role</p>
+                    <a href="https://my-projects-fc4anjb5r-thienbk.vercel.app/" class="text-blue-600 hover:underline flex items-center text-sm">
+                        <i class="fas fa-external-link-alt mr-2"></i>View Project
+                    </a>
                 </div>
             </section>
         </div>
