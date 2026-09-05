@@ -1,396 +1,521 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV - Nguyễn Anh Thiện</title>
-<style>
-    @page { size: A4; margin: 0; }
-    * { box-sizing: border-box; }
-    body {
-        margin: 0;
-        background: #eef1f5;
-        color: #24303f;
-        font-family: "Segoe UI", Arial, sans-serif;
-        line-height: 1.5;
-    }
-    .page {
-        width: 210mm;
-        min-height: 297mm;
-        margin: 20px auto;
-        background: #fff;
-        box-shadow: 0 8px 30px rgba(25, 40, 60, .12);
-    }
-    .header {
-        display: grid;
-        grid-template-columns: 112px 1fr;
-        gap: 24px;
-        padding: 32px 38px 28px;
-        background: #142b4a;
-        color: #fff;
-    }
-    .avatar {
-        width: 112px;
-        height: 112px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 4px solid rgba(255,255,255,.9);
-        background: #dfe5ec;
-    }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
-    h1 {
-        margin: 2px 0 4px;
-        font-size: 31px;
-        letter-spacing: .2px;
-    }
-    .headline {
-        margin: 0 0 15px;
-        color: #b9d7f5;
-        font-size: 16px;
-        font-weight: 600;
-    }
-    .contact {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 20px;
-        font-size: 12.5px;
-        color: #e7eef7;
-    }
-    .content {
-        display: grid;
-        grid-template-columns: 1.7fr 1fr;
-        gap: 30px;
-        padding: 30px 38px 34px;
-    }
-    section { margin-bottom: 27px; }
-    .section-title {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin: 0 0 14px;
-        color: #142b4a;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        font-weight: 800;
-    }
-    .section-title:after {
-        content: "";
-        height: 1px;
-        flex: 1;
-        background: #d9e0e8;
-    }
-    .summary {
-        margin: 0;
-        font-size: 13px;
-        color: #465466;
-    }
-    .job {
-        position: relative;
-        padding-left: 17px;
-        margin-bottom: 23px;
-        border-left: 2px solid #d7e1ec;
-    }
-    .job:before {
-        content: "";
-        position: absolute;
-        left: -6px;
-        top: 4px;
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: #2e6da4;
-    }
-    .job-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        align-items: flex-start;
-    }
-    .job-title {
-        margin: 0;
-        color: #1d2d42;
-        font-size: 14.5px;
-        font-weight: 750;
-    }
-    .date {
-        white-space: nowrap;
-        color: #2e6da4;
-        font-size: 11px;
-        font-weight: 700;
-    }
-    .company {
-        margin: 3px 0 8px;
-        color: #657387;
-        font-size: 11.5px;
-        font-weight: 600;
-    }
-    ul { margin: 0; padding-left: 17px; }
-    li { margin: 4px 0; font-size: 12px; color: #465466; }
-    .edu-item {
-        padding: 13px 15px;
-        background: #f6f8fb;
-        border-radius: 7px;
-        border-left: 3px solid #2e6da4;
-    }
-    .edu-title { margin: 0; font-size: 13px; font-weight: 750; color: #26384e; }
-    .edu-school { margin: 4px 0 0; font-size: 11.5px; color: #657387; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nguyễn Anh Thiện</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
 
-    .skills-panel {
-        background: #f7f9fc;
-        border: 1px solid #dce5ef;
-        border-top: 5px solid #2e6da4;
-        border-radius: 9px;
-        padding: 19px 18px 8px;
-        box-shadow: 0 5px 16px rgba(20, 43, 74, .07);
-    }
-    .skills-badge {
-        display: inline-block;
-        padding: 4px 8px;
-        border-radius: 4px;
-        background: #142b4a;
-        color: #fff;
-        font-size: 9px;
-        font-weight: 800;
-        letter-spacing: 1.3px;
-        margin-bottom: 7px;
-    }
-    .skills-heading {
-        margin: 0;
-        color: #142b4a;
-        font-size: 22px;
-        line-height: 1.1;
-    }
-    .skills-intro {
-        margin: 5px 0 17px;
-        color: #68778a;
-        font-size: 10.5px;
-    }
-    .skills-panel .skill-group {
-        padding-bottom: 13px;
-        margin-bottom: 13px;
-        border-bottom: 1px solid #e1e7ee;
-    }
-    .skills-panel .skill-group:last-child {
-        border-bottom: 0;
-        margin-bottom: 0;
-    }
-    .skills-panel .skill-group h3 {
-        font-size: 10.5px;
-        margin-bottom: 8px;
-        letter-spacing: .2px;
-    }
-    .skills-panel .tag {
-        background: #fff;
-        border-color: #d7e0ea;
-        color: #30445a;
-        font-weight: 600;
-        font-size: 10px;
-        padding: 5px 7px;
-    }
-    .skills-panel .tag.featured {
-        background: #eaf2fa;
-        border-color: #c8dced;
-        color: #1f5d91;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    .skill-group { margin-bottom: 17px; }
-    .skill-group h3 {
-        margin: 0 0 7px;
-        font-size: 12px;
-        color: #2e6da4;
-        font-weight: 800;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-        padding: 4px 8px;
-        background: #f1f5f9;
-        border: 1px solid #e1e7ee;
-        border-radius: 5px;
-        font-size: 10.5px;
-        color: #455468;
-    }
-    .project {
-        padding: 14px 15px;
-        border: 1px solid #e1e7ee;
-        border-radius: 7px;
-    }
-    .project h3 { margin: 0 0 5px; font-size: 13px; color: #26384e; }
-    .project p { margin: 0 0 8px; font-size: 11.5px; color: #657387; }
-    .project a { color: #2e6da4; font-size: 11px; text-decoration: none; font-weight: 700; }
-    .note {
-        padding: 12px 14px;
-        background: #f7f9fc;
-        border-radius: 7px;
-        font-size: 11px;
-        color: #657387;
-    }
-    @media print {
-        body { background: #fff; }
-        .page { margin: 0; box-shadow: none; }
-    }
-    @media (max-width: 800px) {
-        .page { width: 100%; margin: 0; }
-        .content { grid-template-columns: 1fr; }
-        .header { grid-template-columns: 86px 1fr; padding: 24px; }
-        .avatar { width: 86px; height: 86px; }
-        .content { padding: 24px; }
-    }
-</style>
+        body {
+            margin: 0;
+            background: #eef1f5;
+            color: #24303f;
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: #fff;
+            box-shadow: 0 8px 30px rgba(25, 40, 60, .12);
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 112px 1fr;
+            gap: 24px;
+            padding: 32px 38px 28px;
+            background: #142b4a;
+            color: #fff;
+        }
+
+        .avatar {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, .9);
+            background: #dfe5ec;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            margin: 2px 0 4px;
+            font-size: 31px;
+            letter-spacing: .2px;
+        }
+
+        .headline {
+            margin: 0 0 15px;
+            color: #b9d7f5;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-size: 12.5px;
+            color: #e7eef7;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1.7fr 1fr;
+            gap: 30px;
+            padding: 30px 38px 34px;
+        }
+
+        section {
+            margin-bottom: 27px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 14px;
+            color: #142b4a;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 800;
+        }
+
+        .section-title:after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: #d9e0e8;
+        }
+
+        .summary {
+            margin: 0;
+            font-size: 13px;
+            color: #465466;
+        }
+
+        .job {
+            position: relative;
+            padding-left: 17px;
+            margin-bottom: 23px;
+            border-left: 2px solid #d7e1ec;
+        }
+
+        .job:before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #2e6da4;
+        }
+
+        .job-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .job-title {
+            margin: 0;
+            color: #1d2d42;
+            font-size: 14.5px;
+            font-weight: 750;
+        }
+
+        .date {
+            white-space: nowrap;
+            color: #2e6da4;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .company {
+            margin: 3px 0 8px;
+            color: #657387;
+            font-size: 11.5px;
+            font-weight: 600;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 17px;
+        }
+
+        li {
+            margin: 4px 0;
+            font-size: 12px;
+            color: #465466;
+        }
+
+        .edu-item {
+            padding: 13px 15px;
+            background: #f6f8fb;
+            border-radius: 7px;
+            border-left: 3px solid #2e6da4;
+        }
+
+        .edu-title {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 750;
+            color: #26384e;
+        }
+
+        .edu-school {
+            margin: 4px 0 0;
+            font-size: 11.5px;
+            color: #657387;
+        }
+
+        .skills-panel {
+            background: #f7f9fc;
+            border: 1px solid #dce5ef;
+            border-top: 5px solid #2e6da4;
+            border-radius: 9px;
+            padding: 19px 18px 8px;
+            box-shadow: 0 5px 16px rgba(20, 43, 74, .07);
+        }
+
+        .skills-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: #142b4a;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            margin-bottom: 7px;
+        }
+
+        .skills-heading {
+            margin: 0;
+            color: #142b4a;
+            font-size: 22px;
+            line-height: 1.1;
+        }
+
+        .skills-intro {
+            margin: 5px 0 17px;
+            color: #68778a;
+            font-size: 10.5px;
+        }
+
+        .skills-panel .skill-group {
+            padding-bottom: 13px;
+            margin-bottom: 13px;
+            border-bottom: 1px solid #e1e7ee;
+        }
+
+        .skills-panel .skill-group:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .skills-panel .skill-group h3 {
+            font-size: 10.5px;
+            margin-bottom: 8px;
+            letter-spacing: .2px;
+        }
+
+        .skills-panel .tag {
+            background: #fff;
+            border-color: #d7e0ea;
+            color: #30445a;
+            font-weight: 600;
+            font-size: 10px;
+            padding: 5px 7px;
+        }
+
+        .skills-panel .tag.featured {
+            background: #eaf2fa;
+            border-color: #c8dced;
+            color: #1f5d91;
+        }
+
+        .skill-group {
+            margin-bottom: 17px;
+        }
+
+        .skill-group h3 {
+            margin: 0 0 7px;
+            font-size: 12px;
+            color: #2e6da4;
+            font-weight: 800;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            padding: 4px 8px;
+            background: #f1f5f9;
+            border: 1px solid #e1e7ee;
+            border-radius: 5px;
+            font-size: 10.5px;
+            color: #455468;
+        }
+
+        .project {
+            padding: 14px 15px;
+            border: 1px solid #e1e7ee;
+            border-radius: 7px;
+        }
+
+        .project h3 {
+            margin: 0 0 5px;
+            font-size: 13px;
+            color: #26384e;
+        }
+
+        .project p {
+            margin: 0 0 8px;
+            font-size: 11.5px;
+            color: #657387;
+        }
+
+        .project a {
+            color: #2e6da4;
+            font-size: 11px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .note {
+            padding: 12px 14px;
+            background: #f7f9fc;
+            border-radius: 7px;
+            font-size: 11px;
+            color: #657387;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .page {
+                width: 100%;
+                margin: 0;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                grid-template-columns: 86px 1fr;
+                padding: 24px;
+            }
+
+            .avatar {
+                width: 86px;
+                height: 86px;
+            }
+
+            .content {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="page">
+    <div class="page">
 
-    <header class="header">
-        <div class="avatar">
-            <img src="media_20250329_084751_7755292657116521002.jpg" alt="Nguyễn Anh Thiện">
-        </div>
-        <div>
-            <h1>Nguyễn Anh Thiện</h1>
-            <p class="headline">E-commerce &amp; Digital Operations | Software Engineering</p>
-            <div class="contact">
-                <span>✉ thiennguyen2000qwer@gmail.com</span>
-                <span>☎ 0378 889 755</span>
-                <span>⌖ Nam Từ Liêm, Hà Nội</span>
+        <header class="header">
+            <div class="avatar">
+                <img src="media_20250329_084751_7755292657116521002.jpg" alt="Nguyễn Anh Thiện">
             </div>
-        </div>
-    </header>
+            <div>
+                <h1>Nguyễn Anh Thiện</h1>
+                <p class="headline">E-commerce &amp; Digital Operations | Software Engineering</p>
+                <div class="contact">
+                    <span>✉ thiennguyen2000qwer@gmail.com</span>
+                    <span>☎ 0378 889 755</span>
+                    <span>⌖ Nam Từ Liêm, Hà Nội</span>
+                </div>
+            </div>
+        </header>
 
-    <main class="content">
-        <div>
-            <section>
-                <h2 class="section-title">Tóm tắt chuyên môn</h2>
-                <p class="summary">
-                    Có nền tảng Kỹ nghệ phần mềm và kinh nghiệm thực tế trong vận hành dữ liệu
-                    thương mại điện tử, Digital Marketing.<br />
-                    Có khả năng làm việc với dữ liệu sản phẩm, kiểm soát chất lượng nội dung, Excel/Office,
-                     <br />Cẩn thận, chủ động và chú trọng tính chính xác trong công việc.
-                </p>
-            </section>
+        <main class="content">
+            <div>
+                <section>
+                    <h2 class="section-title">Tóm tắt chuyên môn</h2>
+                    <p class="summary">
+                        Có nền tảng Kỹ nghệ phần mềm và kinh nghiệm thực tế trong vận hành dữ liệu
+                        thương mại điện tử, Digital Marketing.<br />
+                        Có khả năng làm việc với dữ liệu sản phẩm, kiểm soát chất lượng nội dung, Excel/Office,
+                        <br />Cẩn thận, chủ động và chú trọng tính chính xác trong công việc.
+                    </p>
+                </section>
 
-            <section>
-                <h2 class="section-title">Kinh nghiệm nổi bật</h2>
+                <section>
+                    <h2 class="section-title">Kinh nghiệm nổi bật</h2>
 
-                <div class="job">
-                    <div class="job-head">
-                        <h3 class="job-title">E-commerce Order Fulfillment Specialist </h3>
-                        <span class="date">01/04/2026 – Nay</span>
+                    <div class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">E-commerce Order Fulfillment Specialist </h3>
+                            <span class="date">01/04/2026 – Nay</span>
+                        </div>
+                        <div class="company">CÔNG TY TNHH DỊCH VỤ GEOSTAR · Hà Nội</div>
+                        <ul>
+                            <li>Vận hành & Kỹ thuật: Phụ trách vận hành App/Website của công ty; đảm bảo quy trình vận
+                                hành trong ca diễn ra hiệu quả, xử lý kịp thời các sự cố phát sinh.</li>
+                            <li>Kinh doanh: Làm việc với khách hàng Trung Quốc và nước ngoài (báo giá, xử lý đơn hàng).
+                            </li>
+                            <li>Giám sát & Quản lý: Theo dõi hoạt động tư vấn, chăm sóc khách hàng; quản lý hiệu suất và
+                                hỗ trợ đào tạo đội nhóm.</li>
+                        </ul>
                     </div>
-                    <div class="company">CÔNG TY TNHH DỊCH VỤ GEOSTAR · Hà Nội</div>
-                    <ul>
-                        <li>Vận hành & Kỹ thuật: Phụ trách vận hành App/Website của công ty; đảm bảo quy trình vận hành trong ca diễn ra hiệu quả, xử lý kịp thời các sự cố phát sinh.</li>
-                        <li>Kinh doanh: Làm việc với khách hàng Trung Quốc và nước ngoài (báo giá, xử lý đơn hàng).</li>
-                        <li>Giám sát & Quản lý: Theo dõi hoạt động tư vấn, chăm sóc khách hàng; quản lý hiệu suất và hỗ trợ đào tạo đội nhóm.</li>
-                    </ul>
-                </div>
 
-                <div class="job">
-                    <div class="job-head">
-                        <h3 class="job-title">Office Staff · E-commerce / Data Operations</h3>
-                        <span class="date">06/2023 – 28/02/2024</span>
+                    <div class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Office Staff · E-commerce / Data Operations</h3>
+                            <span class="date">06/2023 – 28/02/2024</span>
+                        </div>
+                        <div class="company">Cennos Asia · Hà Nội</div>
+                        <ul>
+                            <li>Kiểm tra và duy trì dữ liệu sản phẩm trên các website thương mại điện tử lớn.</li>
+                            <li>Cập nhật, chỉnh sửa và chuẩn hóa thông tin sản phẩm nhằm đảm bảo nội dung rõ ràng, đầy
+                                đủ và nhất quán.</li>
+                            <li>Phân loại dữ liệu sản phẩm theo tiêu chuẩn của khách hàng; kiểm soát và loại bỏ các sản
+                                phẩm không còn phù hợp.</li>
+                        </ul>
                     </div>
-                    <div class="company">Cennos Asia · Hà Nội</div>
-                    <ul>
-                        <li>Kiểm tra và duy trì dữ liệu sản phẩm trên các website thương mại điện tử lớn.</li>
-                        <li>Cập nhật, chỉnh sửa và chuẩn hóa thông tin sản phẩm nhằm đảm bảo nội dung rõ ràng, đầy đủ và nhất quán.</li>
-                        <li>Phân loại dữ liệu sản phẩm theo tiêu chuẩn của khách hàng; kiểm soát và loại bỏ các sản phẩm không còn phù hợp.</li>
-                    </ul>
-                </div>
 
-                <div class="job">
-                    <div class="job-head">
-                        <h3 class="job-title">Digital Marketing</h3>
-                        <span class="date">03/2023 – 06/2023</span>
+                    <div class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Digital Marketing</h3>
+                            <span class="date">03/2023 – 06/2023</span>
+                        </div>
+                        <div class="company">CÔNG TY CỔ PHẦN DATAKI VIỆT NAM · Hà Nội</div>
+                        <ul>
+                            <li>Lập kế hoạch và triển khai quảng cáo trên Facebook.</li>
+                            <li>Chuẩn bị nội dung, thiết kế hình ảnh và video phục vụ chiến dịch.</li>
+                            <li>Quản lý ngân sách, theo dõi và tối ưu hiệu quả các chiến dịch quảng cáo.</li>
+                        </ul>
                     </div>
-                    <div class="company">CÔNG TY CỔ PHẦN DATAKI VIỆT NAM · Hà Nội</div>
-                    <ul>
-                        <li>Lập kế hoạch và triển khai quảng cáo trên Facebook.</li>
-                        <li>Chuẩn bị nội dung, thiết kế hình ảnh và video phục vụ chiến dịch.</li>
-                        <li>Quản lý ngân sách, theo dõi và tối ưu hiệu quả các chiến dịch quảng cáo.</li>
-                    </ul>
-                </div>
 
-                <div class="job">
-                    <div class="job-head">
-                        <h3 class="job-title">Programmer</h3>
-                        <span class="date">06/2022 – 01/2023</span>
+                    <div class="job">
+                        <div class="job-head">
+                            <h3 class="job-title">Programmer</h3>
+                            <span class="date">06/2022 – 01/2023</span>
+                        </div>
+                        <div class="company">XTP Software · Hà Nội</div>
+                        <ul>
+                            <li>Sửa chữa và cập nhật phần mềm quản lý bệnh nhân cho Bệnh viện Đa khoa Hồng Ngọc.</li>
+                            <li>Tham gia xây dựng web app iLogistics phục vụ nhận ký gửi hàng Trung Quốc.</li>
+                            <li>Tham gia xây dựng hệ thống kiểm soát đào tạo học viên.</li>
+                            <li>Hỗ trợ, hướng dẫn và đào tạo thực tập sinh.</li>
+                        </ul>
                     </div>
-                    <div class="company">XTP Software · Hà Nội</div>
-                    <ul>
-                        <li>Sửa chữa và cập nhật phần mềm quản lý bệnh nhân cho Bệnh viện Đa khoa Hồng Ngọc.</li>
-                        <li>Tham gia xây dựng web app iLogistics phục vụ nhận ký gửi hàng Trung Quốc.</li>
-                        <li>Tham gia xây dựng hệ thống kiểm soát đào tạo học viên.</li>
-                        <li>Hỗ trợ, hướng dẫn và đào tạo thực tập sinh.</li>
-                    </ul>
-                </div>
-            </section>
+                </section>
+            </div>
 
-            <section>
-                <h2 class="section-title">Học vấn</h2>
-                <div class="edu-item">
-                    <p class="edu-title">Cử nhân Kỹ nghệ phần mềm (Software Engineering)</p>
-                    <p class="edu-school">Trường Đại học Kinh doanh và Công nghệ Hà Nội · 2018 – 2022</p>
-                </div>
-            </section>
-        </div>
+            <aside>
+                <section class="skills-panel">
+                    <section>
+                        <h2 class="section-title">Học vấn</h2>
+                        <div class="edu-item">
+                            <p class="edu-title">Cử nhân Kỹ nghệ phần mềm (Software Engineering)</p>
+                            <p class="edu-school">Trường Đại học Kinh doanh và Công nghệ Hà Nội · 2018 – 2022</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h2 class="section-title">Điểm mạnh</h2>
+                        <div class="note">
+                            Cẩn thận · Chăm chỉ · Trách nhiệm · Khả năng học hỏi ·
+                            Thích nghi tốt với công việc đa lĩnh vực.
+                        </div>
+                    </section>
+                    <div class="skills-badge">CORE SKILLS</div>
+                    <h2 class="skills-heading">Kỹ năng</h2>
+                    <p class="skills-intro">Những năng lực có thể sử dụng ngay trong công việc.</p>
 
-        <aside>
-            <section class="skills-panel">
-                <div class="skills-badge">CORE SKILLS</div>
-                <h2 class="skills-heading">Kỹ năng</h2>
-                <p class="skills-intro">Những năng lực có thể sử dụng ngay trong công việc.</p>
-
-                <div class="skill-group">
-                    <h3>01 · Programming</h3>
-                    <div class="tags">
-                        <span class="tag featured">HTML</span>
-                        <span class="tag featured">CSS</span>
-                        <span class="tag featured">JavaScript</span>
-                        <span class="tag featured">ReactJS</span>
-                        <span class="tag featured">Java</span>
-                        <span class="tag featured">Python</span>
+                    <div class="skill-group">
+                        <h3>01 · Programming</h3>
+                        <div class="tags">
+                            <span class="tag featured">HTML</span>
+                            <span class="tag featured">CSS</span>
+                            <span class="tag featured">JavaScript</span>
+                            <span class="tag featured">ReactJS</span>
+                            <span class="tag featured">Java</span>
+                            <span class="tag featured">Python</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-group">
-                    <h3>02 · Office &amp; Data</h3>
-                    <div class="tags">
-                        <span class="tag featured">Excel</span>
-                        <span class="tag featured">Word</span>
-                        <span class="tag featured">PowerPoint</span>
-                        <span class="tag">Data Processing</span>
-                        <span class="tag">Data Classification</span>
+                    <div class="skill-group">
+                        <h3>02 · Office &amp; Data</h3>
+                        <div class="tags">
+                            <span class="tag featured">Excel</span>
+                            <span class="tag featured">Word</span>
+                            <span class="tag featured">PowerPoint</span>
+                            <span class="tag">Data Processing</span>
+                            <span class="tag">Data Classification</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-group">
-                    <h3>03 · Digital Marketing</h3>
-                    <div class="tags">
-                        <span class="tag">Facebook Ads</span>
-                        <span class="tag">Content</span>
-                        <span class="tag">Image / Video</span>
-                        <span class="tag">Campaign Optimization</span>
+                    <div class="skill-group">
+                        <h3>03 · Digital Marketing</h3>
+                        <div class="tags">
+                            <span class="tag">Facebook Ads</span>
+                            <span class="tag">Content</span>
+                            <span class="tag">Image / Video</span>
+                            <span class="tag">Campaign Optimization</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-group">
-                    <h3>04 · Media</h3>
-                    <div class="tags">
-                        <span class="tag">Adobe Photoshop CS6</span>
-                        <span class="tag">Adobe Premiere</span>
+                    <div class="skill-group">
+                        <h3>04 · Media</h3>
+                        <div class="tags">
+                            <span class="tag">Adobe Photoshop CS6</span>
+                            <span class="tag">Adobe Premiere</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-group">
-                    <h3>05 · Language</h3>
-                    <div class="tags">
-                        <span class="tag">English ~ B1->B2</span>
-                        <span class="tag">Chinese ~ HSK 3->4</span>
+                    <div class="skill-group">
+                        <h3>05 · Language</h3>
+                        <div class="tags">
+                            <span class="tag">English ~ B1->B2</span>
+                            <span class="tag">Chinese ~ HSK 3->4</span>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section>
+                <!-- <section>
                 <h2 class="section-title">Dự án</h2>
                 <div class="project">
                     <h3>Personal Web Project</h3>
@@ -399,17 +524,10 @@
                         Xem dự án →
                     </a>
                 </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">Điểm mạnh</h2>
-                <div class="note">
-                    Cẩn thận · Chăm chỉ · Trách nhiệm · Khả năng học hỏi ·
-                    Thích nghi tốt với công việc đa lĩnh vực.
-                </div>
-            </section>
-        </aside>
-    </main>
-</div>
+            </section> -->
+            </aside>
+        </main>
+    </div>
 </body>
+
 </html>
